@@ -26,14 +26,4 @@ public class HelloController {
         return "Hello";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/hello2")
-    public ResponseEntity<Object> hello2() {
-        List<LogEntity> list = logService.findAll();
-        return new ResponseEntity<Object>(list, HttpStatus.OK);
-    }
-    @RequestMapping(method = RequestMethod.GET, value = "/hello3")
-    public ResponseEntity<Object> hello3() {
-        List<LogEntity> list = logService.findAll2();
-        return new ResponseEntity<Object>(list, HttpStatus.OK);
-    }
 }
