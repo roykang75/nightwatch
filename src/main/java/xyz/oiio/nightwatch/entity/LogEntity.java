@@ -6,11 +6,13 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @ToString
 @Getter
@@ -23,7 +25,7 @@ public class LogEntity {
     private String id;
 
     @Field(name = "@timestamp", type = FieldType.Date)
-    private LocalDateTime createAt;
+    private Date createAt;
 
     private String instance;
 

@@ -28,33 +28,45 @@ public class ViewController {
         List<LogEntity> list = logService.findAll();
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
-    @RequestMapping(method = RequestMethod.GET, value = "/findallbycreateatdesc")
-    public ResponseEntity<Object> findAllByOrderByCreateAtDesc() {
-        Page<LogEntity> list = logService.findAllByOrderByCreateAtDesc();
+//    @RequestMapping(method = RequestMethod.GET, value = "/findallbycreateatdesc")
+//    public ResponseEntity<Object> findAllByOrderByCreateAtDesc() {
+//        Page<LogEntity> list = logService.findAllByOrderByCreateAtDesc();
+//        return new ResponseEntity<Object>(list, HttpStatus.OK);
+//    }
+//
+//    @RequestMapping(method = RequestMethod.GET, value = "/createatdescbypaging")
+//    public ResponseEntity<Object> CreateAtDescByPaging(int perPage, int perSize) {
+//        Page<LogEntity> list = logService.CreateAtDescByPaging(perPage, perSize);
+//        return new ResponseEntity<Object>(list, HttpStatus.OK);
+//    }
+//
+//    @RequestMapping(method = RequestMethod.GET, value = "/messagelike")
+//    public ResponseEntity<Object> MessageLike(int perPage, int perSize, String words) {
+//        Page<LogEntity> list = logService.MessageLikeByPaging(perPage, perSize, words);
+//        return new ResponseEntity<Object>(list, HttpStatus.OK);
+//    }
+//
+//    @RequestMapping(method = RequestMethod.GET, value = "/messagecontains")
+//    public ResponseEntity<Object> MessageContains(int perPage, int perSize, String words) {
+//        Page<LogEntity> list = logService.MessageContainsByPaging(perPage, perSize, words);
+//        return new ResponseEntity<Object>(list, HttpStatus.OK);
+//    }
+//
+//    @RequestMapping(method = RequestMethod.GET, value = "/messagestartwith")
+//    public ResponseEntity<Object> MessageStartWith(int perPage, int perSize, String words) {
+//        Page<LogEntity> list = logService.MessageStartingWithByPaging(perPage, perSize, words);
+//        return new ResponseEntity<Object>(list, HttpStatus.OK);
+//    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/messagephrase")
+    public ResponseEntity<Object> MessagePhrase(int pageNumber, int pageSize, String phrase) {
+        Page<LogEntity> list = logService.MessagePhraseByPaging(pageNumber, pageSize, phrase);
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/createatdescbypaging")
-    public ResponseEntity<Object> CreateAtDescByPaging(int perPage, int perSize) {
-        Page<LogEntity> list = logService.CreateAtDescByPaging(perPage, perSize);
-        return new ResponseEntity<Object>(list, HttpStatus.OK);
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/messagelike")
-    public ResponseEntity<Object> MessageLike(int perPage, int perSize, String words) {
-        Page<LogEntity> list = logService.MessageLikeByPaging(perPage, perSize, words);
-        return new ResponseEntity<Object>(list, HttpStatus.OK);
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/messagecontains")
-    public ResponseEntity<Object> MessageContains(int perPage, int perSize, String words) {
-        Page<LogEntity> list = logService.MessageContainsByPaging(perPage, perSize, words);
-        return new ResponseEntity<Object>(list, HttpStatus.OK);
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/messagestartwith")
-    public ResponseEntity<Object> MessageStartWith(int perPage, int perSize, String words) {
-        Page<LogEntity> list = logService.MessageStartingWithByPaging(perPage, perSize, words);
+    @RequestMapping(method = RequestMethod.GET, value = "/messagebetween")
+    public ResponseEntity<Object> MessageBetween(int pageNumber, int pageSize, String startDateTime, String endDateTime) {
+        Page<LogEntity> list = logService.BetweenByPaging(pageNumber, pageSize, startDateTime, endDateTime);
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
 }
