@@ -14,11 +14,11 @@ import xyz.oiio.nightwatch.service.LogService;
 
 import java.util.List;
 
-@Tag(name = "View", description = "View API 입니다.")
+@Tag(name = "Search", description = "Search API 입니다.")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "view/v1")
+@RequestMapping(value = "v1/search")
 public class ViewController {
 
     private final LogService logService;
@@ -58,15 +58,15 @@ public class ViewController {
 //        return new ResponseEntity<Object>(list, HttpStatus.OK);
 //    }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/messagephrase")
-    public ResponseEntity<Object> MessagePhrase(int pageNumber, int pageSize, String phrase) {
-        Page<LogEntity> list = logService.MessagePhraseByPaging(pageNumber, pageSize, phrase);
+    @RequestMapping(method = RequestMethod.GET, value = "/messagebyphrase")
+    public ResponseEntity<Object> MessageByPhrase(int pageNumber, int pageSize, String phrase) {
+        Page<LogEntity> list = logService.MessageByPhrase(pageNumber, pageSize, phrase);
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/messagebetween")
     public ResponseEntity<Object> MessageBetween(int pageNumber, int pageSize, String startDateTime, String endDateTime) {
-        Page<LogEntity> list = logService.BetweenByPaging(pageNumber, pageSize, startDateTime, endDateTime);
+        Page<LogEntity> list = logService.MessageBetween(pageNumber, pageSize, startDateTime, endDateTime);
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
 }

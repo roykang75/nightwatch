@@ -73,7 +73,7 @@ public class LogService {
 //    }
 
     @Transactional(readOnly = true)
-    public Page<LogEntity> MessagePhraseByPaging(int pageNumber, int pageSize, String phrase) {
+    public Page<LogEntity> MessageByPhrase(int pageNumber, int pageSize, String phrase) {
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, Sort.Direction.DESC, "createAt");
         return logRepository.findByMessage(phrase, pageable);
     }
@@ -81,7 +81,7 @@ public class LogService {
     // 2023-05-09 14:48:00
     // 2023-05-09 14:48:00
     @Transactional(readOnly = true)
-    public Page<LogEntity> BetweenByPaging(int pageNumber, int pageSize, String startDate, String endDate) {
+    public Page<LogEntity> MessageBetween(int pageNumber, int pageSize, String startDate, String endDate) {
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, Sort.Direction.DESC, "createAt");
         LocalDateTime startDateTime = LocalDateTime.parse(startDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         LocalDateTime endDateTime = LocalDateTime.parse(endDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
