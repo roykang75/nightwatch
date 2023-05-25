@@ -38,6 +38,7 @@ public class ElasticSearchConfig {
 			configuration = ClientConfiguration.builder().connectedTo(baseURL).usingSsl().build();
 		} else {
 			configuration = ClientConfiguration.builder().connectedTo(baseURL).withConnectTimeout(timeout)
+//					.withBasicAuth("elastic", "kN8fRCJ3isi9JjAtD1CY")
 					.withSocketTimeout(timeout).build();
 		}
 
