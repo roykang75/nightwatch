@@ -1,17 +1,14 @@
 package xyz.oiio.nightwatch.repository;
 
-import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import xyz.oiio.nightwatch.entity.LogEntity;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Repository

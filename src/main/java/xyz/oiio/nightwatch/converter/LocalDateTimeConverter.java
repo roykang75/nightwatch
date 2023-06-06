@@ -1,6 +1,5 @@
 package xyz.oiio.nightwatch.converter;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.AttributeConverter;
