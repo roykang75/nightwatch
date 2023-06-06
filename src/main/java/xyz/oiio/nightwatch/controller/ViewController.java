@@ -59,13 +59,13 @@ public class ViewController {
 //    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/messagebyphrase")
-    public ResponseEntity<Object> MessageByPhrase(int pageNumber, int pageSize, String phrase) {
+    public ResponseEntity<Object> messageByPhrase(int pageNumber, int pageSize, String phrase) {
         Page<LogEntity> list = logService.messageByPhrase(pageNumber, pageSize, phrase);
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/messagebetween")
-    public ResponseEntity<Object> MessageBetween(int pageNumber, int pageSize, String startDateTime, String endDateTime) {
+    public ResponseEntity<Object> messageBetween(int pageNumber, int pageSize, String startDateTime, String endDateTime) {
         Page<LogEntity> list = logService.messageBetween(pageNumber, pageSize, startDateTime, endDateTime);
         return new ResponseEntity<Object>(list, HttpStatus.OK);
     }
